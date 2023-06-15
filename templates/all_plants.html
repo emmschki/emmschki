@@ -1,9 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1 >All Pizzas</h1>
+<style>
+        .grid-container{
+                display: grid;
+                gap: 50px;
+        }
+        .grid-item{
+                grid-row-start: 1;
+                grid-row-end: 3;
+        }
+</style>
+<h1 >All Plants</h1>
 {% for item in results %}
-   <h2> <a href="/pizza_database.db/{{item[0]}}">{{item[1]}}</a></h2>  <p> {{item[2]}}</p><br>
-   <img src="hawaii.jpg"
-        alt="hawaii">foto</a>    
+<div class="grid-container"></div>
+
+<div class="grid-item">
+   <h2> <a href="//plants.db/plant">{{item[1]}}</a></h2>  <p> {{item[2]}}</p><br>
+   <img src="{{item[4]}}"
+        alt="crocus vidimos"></a>  
+</div>
+        
+</div>
 {%endfor%}
 {% endblock %}

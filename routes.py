@@ -21,7 +21,7 @@ def about():
     return render_template("about.html")
 
 @app.route("/all_plants")
-def all_pizzas():
+def all_plants():
    conn = sqlite3.connect('plants.db')
    cur = conn.cursor()
    cur.execute("SELECT * FROM plant")
@@ -30,7 +30,7 @@ def all_pizzas():
    return render_template("all_plants.html", results = results)
 
 @app.route('/plant/<int:id>')
-def pizza(id):
+def plant(id):
     conn = sqlite3.connect("plants.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM plant WHERE id = ?",(id,))
@@ -47,26 +47,3 @@ if __name__ == "__main__": # run app from file directly
     app.run(debug= True) #remove debug at end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #SCHAU IN DEIN NOTIZBUCH: FRAGEN FUER MR DUMPHY!!!
