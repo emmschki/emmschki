@@ -34,12 +34,12 @@ def plant(id):
     conn = sqlite3.connect("plants.db")
     cur = conn.cursor()
     cur.execute("SELECT * FROM plant WHERE id = ?",(id,))
-    pizza = cur.fetchone()
-    cur.execute("SELECT name FROM plant WHERE id = pizza[4]",(id,))
+    plant = cur.fetchone()
+    cur.execute("SELECT intro FROM plant WHERE id = plant[4]",(id,))
     base = cur.fetchone()
-    cur.execute("SELECT name FROM plant WHERE id IN(SELECT id FROM Pizzatopping WHERE id = ?),(id,)")
-    topping = cur.fetchone()
-    return render_template ("all_plants.html", pizza = pizza, base = base, topping = topping)
+    cur.execute("SELECT name FROM plant WHERE id IN(SELECT id FROM category WHERE id = ?)",(id,))
+    category = cur.fetchone()
+    return render_template ("all_plants.html", plant = plant, base = base, category = category)
    
 
 #must be at bottom
